@@ -1,0 +1,7 @@
+{
+  "name": "hahaHub",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
