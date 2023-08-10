@@ -1,0 +1,239 @@
+<div id="top">
+<ion-card>
+  <h1>Categories:</h1>
+  <fieldset class="form-group" [(ngModel)]="chosen" ngDefaultControl>
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios7" value="Any"
+          [checked]="true">
+      </div>
+      <div>
+        <label class="text-emphasis form-check-label" for="optionsRadios7">
+          Any
+        </label>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="Misc">
+      </div>
+      <div>
+        <label class="text-emphasis form-check-label" for="optionsRadios2">
+          Classic
+        </label>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios3" value="Dark">
+      </div>
+      <div>
+        <label class="text-emphasis form-check-label" for="optionsRadios3">
+          Dark
+        </label>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios4" value="Pun">
+      </div>
+      <div>
+        <label class="text-emphasis form-check-label" for="optionsRadios4">
+          Pun
+        </label>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios5" value="Spooky">
+      </div>
+      <div>
+        <label class="text-emphasis form-check-label" for="optionsRadios5">
+          Spooky
+        </label>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios6" value="Christmas">
+      </div>
+      <div>
+        <label class="text-emphasis form-check-label" for="optionsRadios6">
+          Christmas
+        </label>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="Programming">
+      </div>
+      <div>
+        <label class="text-emphasis form-check-label" for="optionsRadios1">
+          Coding
+        </label>
+      </div>
+    </div>
+
+  </fieldset>
+<!-- UNCOMMENT FOR ABILITY TO GET NSFW JOKES 
+  <h1>Flags:</h1>
+  <fieldset class="form-group">
+
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="checkbox" [(ngModel)]="nsfw" id="flexCheckDefault1">
+      </div>
+      <div>
+        <label class="form-check-label" for="flexCheckDefault1">
+          NSFW
+        </label>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="checkbox" [(ngModel)]="religious" id="flexCheckDefault2">
+      </div>
+      <div>
+        <label class="form-check-label" for="flexCheckDefault2">
+          Religious
+        </label>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="checkbox" [(ngModel)]="political" id="flexCheckDefault3">
+      </div>
+      <div>
+        <label class="form-check-label" for="flexCheckDefault3">
+          Political
+        </label>
+      </div>
+    </div>
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="checkbox" [(ngModel)]="racist" id="flexCheckDefault4">
+      </div>
+      <div>
+        <label class="form-check-label" for="flexCheckDefault4">
+          Racist
+        </label>
+      </div>
+    </div>
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="checkbox" [(ngModel)]="sexist" id="flexCheckDefault5">
+      </div>
+      <div>
+        <label class="form-check-label" for="flexCheckDefault5">
+          Sexist
+        </label>
+      </div>
+    </div>
+    <div class="d-flex align-items-center form-check">
+      <div>
+        <input class="form-check-input" type="checkbox" [(ngModel)]="explicit" id="flexCheckDefault6">
+      </div>
+      <div>
+        <label class="form-check-label" for="flexCheckDefault6">
+          Explicit
+        </label>
+      </div>
+    </div>
+  </fieldset>
+-->
+
+
+
+  <h1>Joke Type:</h1>
+  <div class="form-group">
+    <select class="form-select mb-3" id="exampleSelect1" ngDefaultControl name="type" [(ngModel)]="type"
+      placeholder="Select joke type">
+      <option value="any" selected="selected">any</option>
+      <option value="single">single</option>
+      <option value="twopart">two-part</option>
+    </select>
+  </div>
+
+  <!--Need a guard against invalid characters-->
+  <!-- 
+  <h1>Joke Search</h1>
+  <div class="search">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Enter Keyword" aria-describedby="button-addon2"
+        [(ngModel)]="search" maxlength="22" ngDefaultControl>
+    </div>
+  </div>
+  -->
+  
+  <button class="btn btn-outline-primary btn-lg btn-block" type="button" id="button-addon2" (click)="getJoke()"><h1>Find Joke!</h1></button>
+ 
+</ion-card>
+
+<div *ngIf="noJoke; else noMatch">
+
+  <div *ngIf="setup; else singleJ" class="card text-white bg-primary mb-3" style="width:95%;margin-left:2.5%;">
+    <div class="card-header">We got a joke <ion-icon name="checkmark-circle"></ion-icon></div>
+    <div class="card-body">
+    <h4 class="card-title">{{sChosen}} {{sType}} Joke<p *ngIf="search"> that contains '{{search}}'</p>
+    </h4>
+      <p class="card-text"><b class="text-secondary"> Setup:</b> <i class="text-primary-emphasis">{{setup}}</i>
+      </p>
+      <p class="card-text"><b class="text-secondary"> Delivery:</b> <i class="text-primary-emphasis">{{delivery}}</i>
+      </p>
+    </div>
+  </div>
+
+  <ng-template #singleJ>
+    <div #singleJ class="card text-white bg-primary mb-3" style="width:95%;margin-left:2.5%;">
+      <div *ngIf="pJoke" class="card-header">We got a joke <ion-icon name="checkmark-circle"></ion-icon>
+      </div>
+      <div *ngIf="!pJoke" class="card-header"> Search a Joke <ion-icon name="thumbs-up"></ion-icon>
+      </div>
+      <div class="card-body">
+        <h4 class="card-title">{{sChosen}} {{sType}} Joke<p *ngIf="search"> that contains '{{search}}'</p>
+        </h4>
+        <p class="card-text" *ngIf="pJoke"><b class="text-secondary"> Joke:</b> <i
+            class="text-primary-emphasis">{{pJoke}}</i>
+        </p>
+      </div>
+    </div>
+  </ng-template>
+</div>
+
+<ng-template #noMatch>
+  <div class="card text-white bg-danger mb-3" style="width:95%;margin-left:2.5%;">
+    <div class="card-body">
+      <h4 class="card-title"> Try Again <ion-icon name="sad"></ion-icon>
+      </h4>
+      <p class="card-text"><b class="text-secondary"></b> <i class="text-primary-emphasis">Lessen the flag amount or try
+          a different <b style="font-weight: 1200;">keyword</b>, type of joke or category</i>
+      </p>
+    </div>
+  </div>
+</ng-template>
+<div id="bot">
+<!--   
+<div *ngIf="!pJoke && !setup; else noMatchButton">
+</div>
+<ng-template #noMatchButton>
+  <div *ngIf="!noJoke; else tryAgain">
+  <div>
+    <button class="btn btn-success btn-lg" type="button" (click)="getJoke()">Another One !</button>
+  </div>
+</div>
+<ng-template #tryAgain>
+  <div>
+    <button class="btn btn-primary btn-lg" type="button" (click)="getJoke()">Try Again !</button>
+  </div>
+</ng-template>
+</ng-template>
+-->
+</div>

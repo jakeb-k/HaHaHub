@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">HaHa Hub</string>
+    <string name="title_activity_main">HaHa Hub</string>
+    <string name="package_name">io.ionic.starter</string>
+    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="admob_app_id">ca-app-pub-3136625989999070~1652546024</string>
+</resources>

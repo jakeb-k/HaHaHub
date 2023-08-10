@@ -1,0 +1,42 @@
+#joke {
+    display:flex; 
+    flex-direction: column;
+    margin:2.5px; 
+}
+.form-group {
+    display:flex; 
+    flex-direction: column;
+    align-items:flex-start;
+}
+.form-group * {
+    margin-left:5px; 
+}
+.form-group select {
+    width:95%;
+    padding:10px; 
+    align-self:center; 
+}
+.search {
+    display:flex; 
+    width:95%; 
+    margin-left:2.5%; 
+}
+.card-header {
+    margin-bottom:-25px; 
+}
+#bot {
+   margin: 50px  0; 
+   font-size:18px; 
+}
+button:hover {
+    text-decoration:underline; 
+    transition: 0.15s ease-in-out; 
+}
+#button-addon2 {
+    background: white;
+    color:rgb(34, 34, 34); 
+}
+#button-addon2:hover {
+    background:rgb(34, 34, 34);
+    color:white; 
+}
